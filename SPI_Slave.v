@@ -1,5 +1,14 @@
+/////////////////////////////////////////////////////////////////////////////////
+// - SPI Slave Submodule for control of single port RAM.
+// - Consists of: 
+//       - FSM with sequential output logic that checks then excutes three commands: 
+//         Send SPI Write Address/Data to RAM, Send SPI Read Address to RAM,    
+//         Recieve SPI Read Data from RAM. 
+//       - An internal 10-bit Shift Register,two MSBs store mode select for RAM.
+//         The rest stores Data/Addresses to be sent to the RAM module.                                 
+//       - Counter Paired with the shift register, flags when register is filled.
+/////////////////////////////////////////////////////////////////////////////////
 module SPI_slave(
-
     input        clk,      //clk(posedge) 
     input        rst,      //rst(negedge) 
 
@@ -17,9 +26,9 @@ module SPI_slave(
 );  
     parameter IDLE      = 3'b000; //Standby
     parameter CHK_CMD   = 3'b001; //Check Command
-    parameter WRITE     = 3'b010; 
-    parameter READ_ADD  = 3'b011;
-    parameter READ_DATA = 3'b100;
+    parameter WRITE     = 3'b010; //write address/data
+    parameter READ_ADD  = 3'b011; //read address recieved from SPI Master
+    parameter READ_DATA = 3'b100; //retrieve data from RAM
     
     (* fsm_encoding = "gray" *)
     reg [2:0] cs, ns; //Current State, Next State
@@ -28,8 +37,11 @@ module SPI_slave(
     reg cnt_on;
     reg add_read;
     reg data_read;
+    //counter instantiation
     counter cntr (.clk(clk), .rst(rst), .cnt_on(cnt_on), .cnt(bit_cnt));
+    //connect output data to internal shift register
     assign rx_data = (rx_valid)? shift_reg:10'b0;
+
     //Next State Logic 
     always @(*) begin
         case (cs)
@@ -71,6 +83,7 @@ module SPI_slave(
                 else
                     ns = IDLE;
             end
+            default: ns = IDLE;
         endcase
     end
 
@@ -136,9 +149,14 @@ module SPI_slave(
                     else if (data_read == 1) begin
                         MISO      <= shift_reg[7];
                         shift_reg <= shift_reg << 1;
-                    end
-                    
+                    end  
                 end
+                default: begin
+                    data_read <= 1'b0;
+                    cnt_on    <= 1'b0;
+                    shift_reg <= 10'b0;
+                    MISO      <= 1'b0;  
+                end          
             endcase
         end
     end
