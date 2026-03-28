@@ -5,7 +5,7 @@ module SPI_slave_RAM(
     //Master Slave Interface
     input    SS_n,   //Slave Sel. ctrl signal (Active Low)
     input    MOSI,   //Master-out, Slave-in
-    output   MISO,   //Master-in, Slave-out
+    output   MISO   //Master-in, Slave-out
 );
     wire [9:0] rx_data;
     wire       rx_valid;
@@ -16,7 +16,7 @@ module SPI_slave_RAM(
         .rst(rst),
         .SS_n(SS_n),
         .MOSI(MOSI),
-        .MISO(MISO)
+        .MISO(MISO),
         .rx_data(rx_data),
         .rx_valid(rx_valid),
         .tx_data(tx_data),
@@ -25,7 +25,7 @@ module SPI_slave_RAM(
     SPI_RAM RAM (
         .clk(clk),
         .rst(rst),
-        .rx_data(din),
+        .din(rx_data),
         .rx_valid(rx_valid),
         .dout(tx_data),
         .tx_valid(tx_valid)

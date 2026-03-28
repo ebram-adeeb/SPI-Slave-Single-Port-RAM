@@ -9,11 +9,11 @@
 //       - Counter Paired with the shift register, flags when register is filled.
 /////////////////////////////////////////////////////////////////////////////////
 module SPI_slave(
-    input        clk,      //clk(posedge) 
-    input        rst,      //rst(negedge) 
+    input        clk,      //posedge
+    input        rst,      //negedge 
 
     //Master Slave Interface
-    input        SS_n,     //Slave Sel.(negedge)
+    input        SS_n,     //Slave Sel. ctrl signal (Active Low)
     input        MOSI,     //Master-out, Slave-in
     output reg   MISO,     //Master-in, Slave-out
 
@@ -103,6 +103,7 @@ module SPI_slave(
             data_read <= 1'b0;
             shift_reg <= 10'b0;
             MISO      <= 1'b0;
+            rx_valid  <= 1'b0;
         end
         else begin
             case (cs)
@@ -111,20 +112,28 @@ module SPI_slave(
                     cnt_on    <= 1'b0;
                     shift_reg <= 10'b0;
                     MISO      <= 1'b0;   
+                    rx_valid  <= 1'b0;
                 end
                 CHK_CMD: begin
                     cnt_on    <= 1'b1;
                 end
                 WRITE: begin
-                    shift_reg <= (shift_reg << 1) | {9'b0, MOSI};
-                    if (bit_cnt == 4'd9)
+                    if (cnt_on) begin
+                        shift_reg <= (shift_reg << 1) | {9'b0, MOSI};
+                    end 
+                    if (bit_cnt == 4'd9) begin
+                        cnt_on   <= 1'b0;
                         rx_valid <= 1'b1;
+                    end 
                     else
                         rx_valid <= 1'b0;
                 end 
                 READ_ADD: begin
-                    shift_reg <= (shift_reg << 1) | {9'b0, MOSI};
+                    if (cnt_on) begin
+                        shift_reg <= (shift_reg << 1) | {9'b0, MOSI};
+                    end 
                     if (bit_cnt == 4'd9) begin
+                        cnt_on   <= 1'b0;
                         rx_valid <= 1'b1;
                         add_read <= 1'b1;
                     end
@@ -133,7 +142,7 @@ module SPI_slave(
                 end 
                 READ_DATA: begin
                     add_read <= 1'b0;
-                    if (cnt_on) begin
+                    if (~tx_valid) begin
                         shift_reg <= (shift_reg << 1) | {9'b0, MOSI};
                     end  
                     if (bit_cnt == 4'd9) begin
@@ -146,16 +155,16 @@ module SPI_slave(
                         shift_reg [7:0] <= tx_data;
                         data_read <= 1'b1;
                     end
-                    else if (data_read == 1) begin
-                        MISO      <= shift_reg[7];
-                        shift_reg <= shift_reg << 1;
+                    if (data_read) begin
+                        MISO <= shift_reg[7];
                     end  
                 end
                 default: begin
                     data_read <= 1'b0;
                     cnt_on    <= 1'b0;
                     shift_reg <= 10'b0;
-                    MISO      <= 1'b0;  
+                    MISO      <= 1'b0; 
+                    rx_valid  <= 1'b0; 
                 end          
             endcase
         end
