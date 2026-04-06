@@ -145,16 +145,16 @@ module SPI_slave(
                     if (~tx_valid) begin
                         shift_reg <= (shift_reg << 1) | {9'b0, MOSI};
                     end  
+                    else  begin
+                        shift_reg [7:0] <= tx_data;
+                        data_read <= 1'b1;
+                    end
                     if (bit_cnt == 4'd9) begin
                         cnt_on   <= 1'b0;
                         rx_valid <= 1'b1;
                     end
                     else
                         rx_valid <= 1'b0;
-                    if (tx_valid) begin
-                        shift_reg [7:0] <= tx_data;
-                        data_read <= 1'b1;
-                    end
                     if (data_read) begin
                         MISO <= shift_reg[7];
                     end  
