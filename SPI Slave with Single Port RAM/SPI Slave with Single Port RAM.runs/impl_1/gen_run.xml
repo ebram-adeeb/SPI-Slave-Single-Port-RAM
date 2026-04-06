@@ -4,40 +4,28 @@
   <File Type="ROUTE-BUS-SKEW" Name="SPI_slave_RAM_bus_skew_routed.rpt"/>
   <File Type="PA-DCP" Name="SPI_slave_RAM.dcp"/>
   <File Type="BITSTR-BMM" Name="SPI_slave_RAM_bd.bmm"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="SPI_slave_RAM_methodology_drc_opted.rpt"/>
-  <File Type="INIT-TIMING" Name="SPI_slave_RAM_timing_summary_init.rpt"/>
   <File Type="ROUTE-PWR" Name="SPI_slave_RAM_power_routed.rpt"/>
   <File Type="PA-TCL" Name="SPI_slave_RAM.tcl"/>
-  <File Type="OPT-TIMING" Name="SPI_slave_RAM_timing_summary_opted.rpt"/>
-  <File Type="OPT-DCP" Name="SPI_slave_RAM_opt.dcp"/>
-  <File Type="ROUTE-PWR-SUM" Name="SPI_slave_RAM_power_summary_routed.pb"/>
   <File Type="REPORTS-TCL" Name="SPI_slave_RAM_reports.tcl"/>
+  <File Type="ROUTE-PWR-SUM" Name="SPI_slave_RAM_power_summary_routed.pb"/>
+  <File Type="OPT-DCP" Name="SPI_slave_RAM_opt.dcp"/>
   <File Type="OPT-DRC" Name="SPI_slave_RAM_drc_opted.rpt"/>
   <File Type="PWROPT-DCP" Name="SPI_slave_RAM_pwropt.dcp"/>
-  <File Type="PWROPT-DRC" Name="SPI_slave_RAM_drc_pwropted.rpt"/>
-  <File Type="PWROPT-TIMING" Name="SPI_slave_RAM_timing_summary_pwropted.rpt"/>
   <File Type="PLACE-DCP" Name="SPI_slave_RAM_placed.dcp"/>
   <File Type="PLACE-IO" Name="SPI_slave_RAM_io_placed.rpt"/>
-  <File Type="PLACE-CLK" Name="SPI_slave_RAM_clock_utilization_placed.rpt"/>
   <File Type="PLACE-UTIL" Name="SPI_slave_RAM_utilization_placed.rpt"/>
   <File Type="PLACE-UTIL-PB" Name="SPI_slave_RAM_utilization_placed.pb"/>
   <File Type="PLACE-CTRL" Name="SPI_slave_RAM_control_sets_placed.rpt"/>
-  <File Type="PLACE-SIMILARITY" Name="SPI_slave_RAM_incremental_reuse_placed.rpt"/>
   <File Type="PLACE-PRE-SIMILARITY" Name="SPI_slave_RAM_incremental_reuse_pre_placed.rpt"/>
-  <File Type="PLACE-TIMING" Name="SPI_slave_RAM_timing_summary_placed.rpt"/>
   <File Type="POSTPLACE-PWROPT-DCP" Name="SPI_slave_RAM_postplace_pwropt.dcp"/>
   <File Type="BG-BIN" Name="SPI_slave_RAM.bin"/>
-  <File Type="POSTPLACE-PWROPT-TIMING" Name="SPI_slave_RAM_timing_summary_postplace_pwropted.rpt"/>
   <File Type="PHYSOPT-DCP" Name="SPI_slave_RAM_physopt.dcp"/>
-  <File Type="PHYSOPT-DRC" Name="SPI_slave_RAM_drc_physopted.rpt"/>
   <File Type="BITSTR-MSK" Name="SPI_slave_RAM.msk"/>
-  <File Type="PHYSOPT-TIMING" Name="SPI_slave_RAM_timing_summary_physopted.rpt"/>
   <File Type="ROUTE-ERROR-DCP" Name="SPI_slave_RAM_routed_error.dcp"/>
   <File Type="ROUTE-DCP" Name="SPI_slave_RAM_routed.dcp"/>
   <File Type="ROUTE-BLACKBOX-DCP" Name="SPI_slave_RAM_routed_bb.dcp"/>
   <File Type="ROUTE-DRC" Name="SPI_slave_RAM_drc_routed.rpt"/>
   <File Type="ROUTE-DRC-PB" Name="SPI_slave_RAM_drc_routed.pb"/>
-  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
   <File Type="BITSTR-LTX" Name="SPI_slave_RAM.ltx"/>
   <File Type="ROUTE-DRC-RPX" Name="SPI_slave_RAM_drc_routed.rpx"/>
   <File Type="BITSTR-MMI" Name="SPI_slave_RAM.mmi"/>
@@ -51,24 +39,17 @@
   <File Type="ROUTE-TIMINGSUMMARY" Name="SPI_slave_RAM_timing_summary_routed.rpt"/>
   <File Type="ROUTE-TIMING-PB" Name="SPI_slave_RAM_timing_summary_routed.pb"/>
   <File Type="ROUTE-TIMING-RPX" Name="SPI_slave_RAM_timing_summary_routed.rpx"/>
-  <File Type="ROUTE-SIMILARITY" Name="SPI_slave_RAM_incremental_reuse_routed.rpt"/>
+  <File Type="RDI-RDI" Name="SPI_slave_RAM.vdi"/>
   <File Type="ROUTE-CLK" Name="SPI_slave_RAM_clock_utilization_routed.rpt"/>
   <File Type="ROUTE-BUS-SKEW-PB" Name="SPI_slave_RAM_bus_skew_routed.pb"/>
   <File Type="ROUTE-BUS-SKEW-RPX" Name="SPI_slave_RAM_bus_skew_routed.rpx"/>
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="SPI_slave_RAM_postroute_physopt.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="SPI_slave_RAM_postroute_physopt_bb.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="SPI_slave_RAM_timing_summary_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="SPI_slave_RAM_timing_summary_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="SPI_slave_RAM_timing_summary_postroute_physopted.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="SPI_slave_RAM_bus_skew_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="SPI_slave_RAM_bus_skew_postroute_physopted.pb"/>
   <File Type="BG-BIT" Name="SPI_slave_RAM.bit"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="SPI_slave_RAM_bus_skew_postroute_physopted.rpx"/>
   <File Type="BITSTR-RBT" Name="SPI_slave_RAM.rbt"/>
   <File Type="BITSTR-NKY" Name="SPI_slave_RAM.nky"/>
   <File Type="BG-BGN" Name="SPI_slave_RAM.bgn"/>
   <File Type="BG-DRC" Name="SPI_slave_RAM.drc"/>
-  <File Type="RDI-RDI" Name="SPI_slave_RAM.vdi"/>
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
@@ -120,9 +101,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018">
-      <Desc>Default settings for Implementation.</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018"/>
     <Step Id="init_design"/>
     <Step Id="opt_design"/>
     <Step Id="power_opt_design"/>

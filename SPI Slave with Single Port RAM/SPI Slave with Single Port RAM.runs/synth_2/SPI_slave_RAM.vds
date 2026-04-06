@@ -1,0 +1,62 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Mon Apr  6 08:15:35 2026
+# Process ID: 28644
+# Current directory: C:/SPI-Slave-with-Single-Port-RAM-main/SPI Slave with Single Port RAM/SPI Slave with Single Port RAM.runs/synth_2
+# Command line: vivado.exe -log SPI_slave_RAM.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source SPI_slave_RAM.tcl
+# Log file: C:/SPI-Slave-with-Single-Port-RAM-main/SPI Slave with Single Port RAM/SPI Slave with Single Port RAM.runs/synth_2/SPI_slave_RAM.vds
+# Journal file: C:/SPI-Slave-with-Single-Port-RAM-main/SPI Slave with Single Port RAM/SPI Slave with Single Port RAM.runs/synth_2\vivado.jou
+#-----------------------------------------------------------
+source SPI_slave_RAM.tcl -notrace
+Command: synth_design -top SPI_slave_RAM -part xc7a35ticpg236-1L -fsm_extraction one_hot
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35ti'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35ti'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 26812 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 355.906 ; gain = 99.023
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'SPI_slave_RAM' [C:/SPI-Slave-with-Single-Port-RAM-main/Design/top_module.v:2]
+INFO: [Synth 8-6157] synthesizing module 'SPI_slave' [C:/SPI-Slave-with-Single-Port-RAM-main/Design/SPI_Slave.v:11]
+	Parameter IDLE bound to: 3'b000 
+	Parameter CHK_CMD bound to: 3'b001 
+	Parameter WRITE bound to: 3'b010 
+	Parameter READ_ADD bound to: 3'b011 
+	Parameter READ_DATA bound to: 3'b100 
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "gray" *) [C:/SPI-Slave-with-Single-Port-RAM-main/Design/SPI_Slave.v:34]
+INFO: [Synth 8-6157] synthesizing module 'counter' [C:/SPI-Slave-with-Single-Port-RAM-main/Design/counter.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'counter' (1#1) [C:/SPI-Slave-with-Single-Port-RAM-main/Design/counter.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'SPI_slave' (2#1) [C:/SPI-Slave-with-Single-Port-RAM-main/Design/SPI_Slave.v:11]
+INFO: [Synth 8-6157] synthesizing module 'SPI_RAM' [C:/SPI-Slave-with-Single-Port-RAM-main/Design/single_port_RAM.v:8]
+	Parameter MEM_DEPTH bound to: 256 - type: integer 
+	Parameter ADDR_SIZE bound to: 8 - type: integer 
+	Parameter MEM_WIDTH bound to: 8 - type: integer 
+	Parameter RAM_WR_ADD bound to: 2'b00 
+	Parameter RAM_WR_DATA bound to: 2'b01 
+	Parameter RAM_RD_ADD bound to: 2'b10 
+	Parameter RAM_RD_DATA bound to: 2'b11 
+INFO: [Synth 8-6155] done synthesizing module 'SPI_RAM' (3#1) [C:/SPI-Slave-with-Single-Port-RAM-main/Design/single_port_RAM.v:8]
+INFO: [Synth 8-6155] done synthesizing module 'SPI_slave_RAM' (4#1) [C:/SPI-Slave-with-Single-Port-RAM-main/Design/top_module.v:2]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 410.496 ; gain = 153.613
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 410.496 ; gain = 153.613
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 410.496 ; gain = 153.613
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a35ticpg236-1L
