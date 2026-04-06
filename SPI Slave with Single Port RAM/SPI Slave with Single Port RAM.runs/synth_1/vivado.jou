@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Mon Apr  6 05:14:26 2026
+# Process ID: 22436
+# Current directory: C:/Users/Abanob/Desktop/SPI-Slave-with-Single-Port-RAM-main/SPI Slave with Single Port RAM/SPI Slave with Single Port RAM.runs/synth_1
+# Command line: vivado.exe -log SPI_slave_RAM.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source SPI_slave_RAM.tcl
+# Log file: C:/Users/Abanob/Desktop/SPI-Slave-with-Single-Port-RAM-main/SPI Slave with Single Port RAM/SPI Slave with Single Port RAM.runs/synth_1/SPI_slave_RAM.vds
+# Journal file: C:/Users/Abanob/Desktop/SPI-Slave-with-Single-Port-RAM-main/SPI Slave with Single Port RAM/SPI Slave with Single Port RAM.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source SPI_slave_RAM.tcl -notrace
